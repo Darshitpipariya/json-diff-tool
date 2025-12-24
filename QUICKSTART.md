@@ -42,6 +42,52 @@ python3 json_comparator.py response1.json response2.json --format text -o compar
 
 The report will be saved in your chosen format for easy review or processing.
 
+## Sample Output
+
+The comparison report (JSON format) will look like this:
+
+```json
+{
+  "summary": {
+    "file1": "response1.json",
+    "file2": "response2.json",
+    "total_differences": 5,
+    "missing_in_file2": 2,
+    "missing_in_file1": 1,
+    "type_mismatches": 0,
+    "value_mismatches": 2
+  },
+  "differences": {
+    "missing_in_file2": [
+      {
+        "path": "root['Products'][Skunit.id=123]['price']",
+        "value": "100.00"
+      }
+    ],
+    "missing_in_file1": [
+      {
+        "path": "root['Products'][Skunit.id=456]['discount']",
+        "value": "10%"
+      }
+    ],
+    "type_mismatches": [],
+    "value_mismatches": [
+      {
+        "path": "root['Products'][Skunit.id=789]['name']",
+        "value1": "Product A",
+        "value2": "Product B"
+      }
+    ]
+  }
+}
+```
+
+**Key features:**
+- Arrays matched by ID (e.g., `[Skunit.id=123]` instead of `[0]`)
+- Clear categorization of differences
+- Easy to parse programmatically
+- Complete path to each difference
+
 ## What You'll See
 
 The comparison will show:

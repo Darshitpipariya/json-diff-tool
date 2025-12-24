@@ -138,12 +138,69 @@ python3 json_comparator.py response1.json response2.json
 
 ## Sample Output
 
+### JSON Format (Default)
+
+```json
+{
+  "summary": {
+    "file1": "response1.json",
+    "file2": "response2.json",
+    "total_differences": 10,
+    "missing_in_file2": 2,
+    "missing_in_file1": 1,
+    "type_mismatches": 1,
+    "value_mismatches": 6
+  },
+  "differences": {
+    "missing_in_file2": [
+      {
+        "path": "root['score']",
+        "value": "95.5"
+      },
+      {
+        "path": "root['metadata']['preferences']['language']",
+        "value": "en"
+      }
+    ],
+    "missing_in_file1": [
+      {
+        "path": "root['metadata']['preferences']['theme']",
+        "value": "dark"
+      }
+    ],
+    "type_mismatches": [
+      {
+        "path": "root['id']",
+        "type1": "int",
+        "type2": "str",
+        "value1": "1",
+        "value2": "1"
+      }
+    ],
+    "value_mismatches": [
+      {
+        "path": "root['tags'][1]",
+        "value1": "python",
+        "value2": "javascript"
+      },
+      {
+        "path": "root['name']",
+        "value1": "John",
+        "value2": "Jane"
+      }
+    ]
+  }
+}
+```
+
+### Text Format (use `--format text`)
+
 ```
 ================================================================================
 JSON COMPARISON REPORT
 ================================================================================
-File 1: test1.json
-File 2: test2.json
+File 1: response1.json
+File 2: response2.json
 ================================================================================
 
 Total differences found: 10
@@ -165,7 +222,7 @@ TYPE MISMATCHES (1 items)
   File 2: str = 1
 
 ────────────────────────────────────────────────────────────────────────────────
-VALUE MISMATCHES (4 items)
+VALUE MISMATCHES (6 items)
 ────────────────────────────────────────────────────────────────────────────────
   Path:   root['tags'][1]
   File 1: python
