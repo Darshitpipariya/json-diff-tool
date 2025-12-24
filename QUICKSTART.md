@@ -33,10 +33,14 @@
 ### Step 3: Compare
 
 ```bash
-python3 json_comparator.py response1.json response2.json -o comparison_report.txt
+# JSON format (default, easy to process programmatically)
+python3 json_comparator.py response1.json response2.json -o comparison_report.json
+
+# Or text format for human reading
+python3 json_comparator.py response1.json response2.json --format text -o comparison_report.txt
 ```
 
-The report will be saved to `comparison_report.txt` for easy review.
+The report will be saved in your chosen format for easy review or processing.
 
 ## What You'll See
 

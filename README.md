@@ -70,17 +70,17 @@ Compare two JSON files and report all differences.
 
 **Usage:**
 ```bash
-# Print to console (text format)
+# Save as JSON (default, RECOMMENDED for programmatic processing)
+python3 json_comparator.py file1.json file2.json -o report.json
+
+# Save as text (human-readable)
+python3 json_comparator.py file1.json file2.json --format text -o report.txt
+
+# Print to console (JSON format)
 python3 json_comparator.py file1.json file2.json
 
-# Save to file (text format, RECOMMENDED for human reading)
-python3 json_comparator.py file1.json file2.json --output report.txt
-
-# Save as JSON (RECOMMENDED for programmatic processing)
-python3 json_comparator.py file1.json file2.json --format json -o report.json
-
 # Adjust ID search depth for very nested structures
-python3 json_comparator.py file1.json file2.json -o report.txt --max-depth 10
+python3 json_comparator.py file1.json file2.json -o report.json --max-depth 10
 ```
 
 **Output Categories:**
@@ -106,8 +106,11 @@ python3 fetch_from_curl.py --curl-file curl_command1.txt --output response1.json
 # Step 4: Fetch second response
 python3 fetch_from_curl.py --curl-file curl_command2.txt --output response2.json
 
-# Step 5: Compare responses
-python3 json_comparator.py response1.json response2.json -o comparison_report.txt
+# Step 5: Compare responses (outputs JSON by default)
+python3 json_comparator.py response1.json response2.json -o comparison_report.json
+
+# Or get text format for human reading
+python3 json_comparator.py response1.json response2.json --format text -o comparison_report.txt
 ```
 
 ### Manual Method (Using fetch_response.py)

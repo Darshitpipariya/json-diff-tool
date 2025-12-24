@@ -395,9 +395,9 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  %(prog)s file1.json file2.json
-  %(prog)s file1.json file2.json --output diff_report.txt
-  %(prog)s response1.json response2.json -o comparison.txt
+  %(prog)s file1.json file2.json -o diff_report.json
+  %(prog)s file1.json file2.json --format text -o diff_report.txt
+  %(prog)s response1.json response2.json -o comparison.json
         """
     )
     
@@ -406,8 +406,8 @@ Examples:
     parser.add_argument('--output', '-o', help='Output file to save the comparison report')
     parser.add_argument('--max-depth', type=int, default=None, 
                         help='Maximum depth to search for ID fields in nested objects (default: unlimited)')
-    parser.add_argument('--format', choices=['text', 'json'], default='text',
-                        help='Output format: text (human-readable) or json (machine-readable, default: text)')
+    parser.add_argument('--format', choices=['text', 'json'], default='json',
+                        help='Output format: text (human-readable) or json (machine-readable, default: json)')
     
     args = parser.parse_args()
     

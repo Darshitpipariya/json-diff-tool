@@ -18,15 +18,15 @@ After installation, you can use:
 ### `jcompare` - Compare JSON files
 
 ```bash
-# Text format
-jcompare file1.json file2.json -o report.txt
+# JSON format (default)
+jcompare file1.json file2.json -o report.json
 
-# JSON format
-jcompare file1.json file2.json --format json -o report.json
+# Text format (human-readable)
+jcompare file1.json file2.json --format text -o report.txt
 
 # From anywhere
 cd ~/Documents
-jcompare /path/to/file1.json /path/to/file2.json -o diff.txt
+jcompare /path/to/file1.json /path/to/file2.json -o diff.json
 ```
 
 ### `jfetch` - Fetch JSON from curl commands
