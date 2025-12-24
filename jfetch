@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+"""
+JSON Fetch - Fetch JSON from curl commands from anywhere
+"""
+import sys
+import os
+
+# Get the real path (resolves symlinks)
+SCRIPT_PATH = os.path.realpath(__file__)
+SCRIPT_DIR = os.path.dirname(SCRIPT_PATH)
+FETCHER_PATH = os.path.join(SCRIPT_DIR, 'fetch_from_curl.py')
+
+# Import and run the fetcher
+if __name__ == '__main__':
+    # Add script directory to path
+    sys.path.insert(0, SCRIPT_DIR)
+    
+    # Execute the fetcher
+    with open(FETCHER_PATH) as f:
+        code = compile(f.read(), FETCHER_PATH, 'exec')
+        exec(code)

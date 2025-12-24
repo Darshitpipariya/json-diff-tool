@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+"""
+JSON Comparator - Compare two JSON files from anywhere
+"""
+import sys
+import os
+
+# Get the real path (resolves symlinks)
+SCRIPT_PATH = os.path.realpath(__file__)
+SCRIPT_DIR = os.path.dirname(SCRIPT_PATH)
+COMPARATOR_PATH = os.path.join(SCRIPT_DIR, 'json_comparator.py')
+
+# Import and run the comparator
+if __name__ == '__main__':
+    # Add script directory to path
+    sys.path.insert(0, SCRIPT_DIR)
+    
+    # Execute the comparator
+    with open(COMPARATOR_PATH) as f:
+        code = compile(f.read(), COMPARATOR_PATH, 'exec')
+        exec(code)
